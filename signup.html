@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/login.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="container forms">
+      <div class="form signup">
+        <div class="form-content">
+          <div id="errorDiv" class="error-message"></div>
+          <header>Signup</header>
+          <form action="#" id="signupForm">
+            <div class="field input-field half">
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="First Name"
+                required
+              />
+            </div>
+
+            <div class="field input-field half">
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Last Name"
+                required
+              />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Phone"
+                required
+              />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                required
+              />
+              <i class="bx bx-hide eye-icon"></i>
+            </div>
+
+            <div class="form-link">
+              <a href="#" class="forgot-pass">Forgot password?</a>
+            </div>
+
+            <div class="field button-field">
+              <button type="submit">Signup</button>
+            </div>
+          </form>
+
+          <div class="form-link">
+            <span
+              >Already have an account?
+              <a href="login.html" class="link signup-link">Login</a></span
+            >
+          </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="media-options">
+          <a href="#" class="field facebook">
+            <i class="bx bxl-facebook facebook-icon"></i>
+            <span>Login with Facebook</span>
+          </a>
+        </div>
+
+        <div class="media-options">
+          <a href="#" class="field google">
+            <img src="images/google.png" alt="" class="google-img" />
+            <span>Login with Google</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

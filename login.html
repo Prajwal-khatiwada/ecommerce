@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/login.css" />
+
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="container forms">
+      <div class="form login">
+        <div class="form-content">
+          <div id="errorDiv" class="error-message"></div>
+          <header>Login</header>
+          <form action="#" id="loginForm">
+            <div class="field input-field">
+              <input
+                type="email"
+                placeholder="Email"
+                name="email"
+                class="input"
+                required
+              />
+            </div>
+
+            <div class="field input-field">
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                class="password"
+                required
+              />
+              <i class="bx bx-hide eye-icon"></i>
+            </div>
+
+            <div class="form-link">
+              <a href="#" class="forgot-pass">Forgot password?</a>
+            </div>
+
+            <div class="field button-field">
+              <button type="submit">Login</button>
+            </div>
+          </form>
+
+          <div class="form-link">
+            <span
+              >Don't have an account?
+              <a href="signup.html" class="link signup-link">Signup</a></span
+            >
+          </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="media-options">
+          <a href="#" class="field facebook">
+            <i class="bx bxl-facebook facebook-icon"></i>
+            <span>Login with Facebook</span>
+          </a>
+        </div>
+
+        <div class="media-options">
+          <a href="#" class="field google">
+            <img src="images/google.png" alt="" class="google-img" />
+            <span>Login with Google</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+      const pwShowHide = document.querySelectorAll(".eye-icon");
+
+      pwShowHide.forEach((eyeIcon) => {
+        eyeIcon.addEventListener("click", () => {
+          let pwField = eyeIcon.previousElementSibling;
+
+          if (pwField.type === "password") {
+            pwField.type = "text";
+            eyeIcon.classList.replace("bx-hide", "bx-show");
+          } else {
+            pwField.type = "password";
+            eyeIcon.classList.replace("bx-show", "bx-hide");
+          }
+        });
+      });
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(event.target);
+          const user = {
+            email: formData.get("email"),
+            password: formData.get("password"),
+          };
+
+          console.log("Sending JSON:", JSON.stringify(user));
+
+          try {
+            const response = await fetch("http://localhost:8000/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json; charset=utf-8",
+              },
+              body: JSON.stringify(user),
+            });
+
+            if (!response.ok) {
+              const errorData = await response.json();
+              throw new Error(errorData.error || "Login failed");
+            }
+
+            const loggedInUser = await response.json();
+            console.log(loggedInUser); // The user data returned from the backend after successful login
+
+            // Redirect to the desired page after successful login (e.g., dashboard.html)
+            window.location.href = "dashboard.html";
+          } catch (error) {
+            console.error("JSON error:", error.message);
+
+            // Display the error message in the frontend
+            const errorDiv = document.getElementById("errorDiv");
+            errorDiv.textContent = error.message;
+          }
+        });
+    </script>
+  </body>
+</html>
