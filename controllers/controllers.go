@@ -102,7 +102,7 @@ func SignUp() gin.HandlerFunc {
 
 		_, inserterr := UserCollection.InsertOne(ctx, user)
 		if inserterr != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "not created"})
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "User not created"})
 			return
 		}
 
