@@ -16,18 +16,24 @@
   </head>
   <body>
     <section id="header">
-      <div class="logo"><a href="">MW</a></div>
+      <div class="logo">
+        <a href=""><img src="img\logo_site.png" alt="Logo" /></a>
+      </div>
 
       <div class="search">
-        <input type="text" placeholder="I'm searching for....." />
-        <button>Search</button>
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="I'm searching for....."
+        />
+        <button id="searchButton">Search</button>
       </div>
+
       <div>
         <ul id="navbar">
           <li><a class="active" href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
           <li>
             <a href="cart.html"
               ><i class="fa fa-shopping-bag" aria-hidden="true"></i>
@@ -37,10 +43,9 @@
       </div>
     </section>
     <section id="hero">
-      <h4>Mega Sale in-Offer</h4>
-      <h2>Get Huge Discounts</h2>
-      <h1>On All Products</h1>
-      <p>save upto 20% from this sale</p>
+      <h4>हाट बजार</h4>
+      <h1>नेपालमा बनेको नेपालीकै लगी।</h1>
+      <p>A True Nepali E-Commerce</p>
       <button onclick="window.location.href='shop.html'">Shop Now</button>
     </section>
 
@@ -58,18 +63,15 @@
       <p>Collection New Modern Products</p>
       <div class="container">
         <div class="pro" onclick="window.location.href='details.html'">
-          <img src="img/gym.jpg" alt="" />
+          <img
+            src="path_to_image.jpg"
+            alt="Product Image"
+            class="product-image"
+          />
           <div class="des">
-            <span>JX-7301</span>
-            <h5>Exercise Bike with Arm Exercisers</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
           </div>
           <div class="cart1">
             <a href=""
@@ -78,152 +80,157 @@
           </div>
         </div>
 
-        <div class="pro" onclick="window.location.href='details.html'">
-          <img src="img/rocket.jpg" alt="" />
-          <div class="des">
-            <span>LED Strip Lights</span>
-            <h5>Sengled Smart TV Backlights for 45-75 inch TVs</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
         </div>
-
-        <div class="pro" onclick="window.location.href='details.html'">
-          <img src="img/rocket/71QlPgolYMS._AC_SL1000_.jpg" alt="" />
-          <div class="des">
-            <span>shocks</span>
-            <h5>Socktastic mens Gaming - 2 Pack</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
         </div>
+      </div>
 
-        <div class="pro" onclick="window.location.href='details.html'">
-          <img src="img/rocket/71z1rgxpN4L._AC_SL1000_.jpg" alt="" />
-          <div class="des">
-            <span>pokemon</span>
-            <h5>Pokémon Assorted Cards, 50 Pieces</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
         </div>
-
-        <div class="pro" onclick="window.location.href='details.html'">
-          <img src="img/rocket/81VnYh2r8-S._AC_SL1500_.jpg" alt="" />
-          <div class="des">
-            <span>Hygge Games</span>
-            <h5>CI should have known that!</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
         </div>
+      </div>
 
-        <div class="pro" onclick="window.location.href='details.html'">
-          >
-          <img src="img/products/f6.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Astronaut T-shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
         </div>
-
-        <div class="pro" onclick="window.location.href='details.html'">
-          <img src="img/products/f7.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Astronaut Salwar</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
         </div>
+      </div>
 
-        <div class="pro" onclick="window.location.href='details.html'">
-          <img src="img/products/f8.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Cartoon Astronaut Ladies Tops</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
+        </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
+        </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
+        </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
+        </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
+        </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
+        </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
+        </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="pro" onclick="window.location.href='details.html'">
+        <img src="" alt="Product Image" class="product-image" />
+        <div class="des">
+          <span class="product-category"></span>
+          <h5 class="product-name"></h5>
+          <h4 class="product-price"></h4>
+        </div>
+        <div class="cart1">
+          <a href=""
+            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+          ></a>
         </div>
       </div>
     </section>
@@ -408,22 +415,6 @@
       </div>
     </section>
 
-    <section id="sm-banner" class="section-p1">
-      <div class="banner-box">
-        <h4>Crazy deals</h4>
-        <h2>buy 1 get 1 free</h2>
-        <span>The best classic dress is on sale at cara</span>
-        <button class="but">Learn More</button>
-      </div>
-
-      <div class="banner-box b2">
-        <h4>Spring/Summer</h4>
-        <h2>upcoming season</h2>
-        <span>The best classic dress is on sale at cara</span>
-        <button class="but">Learn More</button>
-      </div>
-    </section>
-
     <section id="banner3">
       <div class="banner-box b3">
         <h2>SEASONAL SALE</h2>
@@ -502,5 +493,68 @@
     <div class="copyright">
       <p>@2022- MW Market World</p>
     </div>
+    <script>
+      fetch("http://localhost:8000/users/productview")
+        .then((response) => response.json())
+        .then((products) => {
+          const productElements = document.querySelectorAll(".pro");
+
+          // Loop through each product and populate the placeholders
+          products.forEach((product, index) => {
+            const productElement = productElements[index];
+            const productImage = productElement.querySelector(".product-image");
+            const productCategory =
+              productElement.querySelector(".product-category");
+            const productName = productElement.querySelector(".product-name");
+            const productPrice = productElement.querySelector(".product-price");
+
+            productImage.src = product.image; // Replace with actual image URL
+            productCategory.textContent = product.category;
+            productName.textContent = product.product_name;
+            productPrice.textContent = `$${product.price}`;
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching product data:", error);
+        });
+
+      document
+        .getElementById("searchButton")
+        .addEventListener("click", function () {
+          const searchInput = document.getElementById("searchInput").value;
+          searchProducts(searchInput);
+        });
+
+      function searchProducts(query) {
+        // Make an AJAX request to your backend API
+        fetch(`http://localhost:8000/users/productview/search?name=${query}`)
+          .then((response) => response.json())
+          .then((data) => {
+            // Process the data received from the API and update the UI
+            displaySearchResults(data);
+          })
+          .catch((error) => {
+            console.error("Error fetching search results:", error);
+          });
+      }
+
+      function displaySearchResults(results) {
+        const productContainer = document.querySelector(".container"); // Assuming this is the container for products
+
+        // Clear the existing products from the container
+        productContainer.innerHTML = "";
+
+        // Loop through the search results and create HTML elements for each product
+        results.forEach((product) => {
+          const productDiv = document.createElement("div");
+          productDiv.className = "pro";
+
+          // Create other elements for product details (image, name, price, etc.)
+          // You can use the product details from the 'results' array
+
+          productContainer.appendChild(productDiv);
+        });
+      }
+    </script>
   </body>
 </html>

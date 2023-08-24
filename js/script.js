@@ -23,13 +23,13 @@ document
     const user = {
       first_name: encodeURIComponent(formData.get("firstName")),
       last_name: encodeURIComponent(formData.get("lastName")),
-      email: encodeURIComponent(formData.get("email")),
+      email: formData.get("email"),
       password: encodeURIComponent(formData.get("password")),
       phone: encodeURIComponent(formData.get("phone")),
     };
     
 
-    // console.log("Sending JSON:", JSON.stringify(user));
+    console.log("Sending JSON:", JSON.stringify(user));
 
     console.log(JSON.stringify(user));
 

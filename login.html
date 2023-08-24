@@ -11,7 +11,8 @@
 
     <!-- Boxicons CSS -->
     <link
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css
+"
       rel="stylesheet"
     />
   </head>
@@ -79,6 +80,7 @@
     </section>
 
     <!-- JavaScript -->
+
     <script>
       const pwShowHide = document.querySelectorAll(".eye-icon");
 
@@ -95,6 +97,7 @@
           }
         });
       });
+
       document
         .getElementById("loginForm")
         .addEventListener("submit", async function (event) {
@@ -109,7 +112,7 @@
           console.log("Sending JSON:", JSON.stringify(user));
 
           try {
-            const response = await fetch("http://localhost:8000/login", {
+            const response = await fetch("http://localhost:8000/users/login", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json; charset=utf-8",
@@ -117,20 +120,14 @@
               body: JSON.stringify(user),
             });
 
-            if (!response.ok) {
+            if (response.status !== 302) {
               const errorData = await response.json();
               throw new Error(errorData.error || "Login failed");
             }
 
             const loggedInUser = await response.json();
-            console.log(loggedInUser); // The user data returned from the backend after successful login
-
-            // Redirect to the desired page after successful login (e.g., dashboard.html)
-            window.location.href = "dashboard.html";
+            window.location.href = "index.html";
           } catch (error) {
-            console.error("JSON error:", error.message);
-
-            // Display the error message in the frontend
             const errorDiv = document.getElementById("errorDiv");
             errorDiv.textContent = error.message;
           }
