@@ -98,7 +98,12 @@ func EditHomeAddress() gin.HandlerFunc {
 		defer cancel()
 
 		filter := bson.D{primitive.E{Key: "_id", Value: usert_id}}
-		update := bson.D{{Key: "$set", Value: bson.D{primitive.E{Key: "address.0.house_name", Value: editaddress.House}, {Key: "address.0.street_name", Value: editaddress.Street}, {Key: "address.0.city_name", Value: editaddress.City}, {Key: "address.0.pin_code", Value: editaddress.Pincode}}}}
+		update := bson.D{
+			{Key: "$set", Value: bson.D{
+				primitive.E{Key: "address.0.house_name", Value: editaddress.House},
+				{Key: "address.0.street_name", Value: editaddress.Street},
+				{Key: "address.0.city_name", Value: editaddress.City},
+				{Key: "address.0.pin_code", Value: editaddress.Pincode}}}}
 
 		_, err = UserCollection.UpdateOne(ctx, filter, update)
 		if err != nil {
@@ -138,7 +143,7 @@ func DeleteAddress() gin.HandlerFunc {
 
 		_, err = UserCollection.UpdateOne(ctx, filter, update)
 		if err != nil {
-			c.IndentedJSON(404, "Wromg")
+			c.IndentedJSON(404, "Wrong")
 			return
 		}
 

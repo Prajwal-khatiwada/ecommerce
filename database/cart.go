@@ -19,7 +19,6 @@ var (
 	ErrUserIDIsNotValid   = errors.New("user is not valid")
 	ErrCantUpdateUser     = errors.New("cannot add product to cart")
 	ErrCantRemoveItem     = errors.New("cannot remove item from cart")
-	ErrCantGetItem        = errors.New("cannot get item from cart ")
 	ErrCantBuyCartItem    = errors.New("cannot update the purchase")
 )
 
@@ -84,7 +83,7 @@ func BuyItemFromCart(ctx context.Context, userCollection *mongo.Collection, user
 	var ordercart models.Order
 
 	ordercart.Order_ID = primitive.NewObjectID()
-	ordercart.Orderered_At = time.Now()
+	ordercart.Ordered_At = time.Now()
 	ordercart.Order_Cart = make([]models.ProductUser, 0)
 	ordercart.Payment_Method.COD = true
 
@@ -156,7 +155,7 @@ func InstantBuyer(ctx context.Context, prodCollection, userCollection *mongo.Col
 	var orders_detail models.Order
 
 	orders_detail.Order_ID = primitive.NewObjectID()
-	orders_detail.Orderered_At = time.Now()
+	orders_detail.Ordered_At = time.Now()
 	orders_detail.Order_Cart = make([]models.ProductUser, 0)
 	orders_detail.Payment_Method.COD = true
 

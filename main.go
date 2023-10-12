@@ -15,6 +15,7 @@ import (
 )
 
 func main() {
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8000"
@@ -30,7 +31,7 @@ func main() {
 		RequestHeaders: "Origin, Authorization, Content-Type, Token",
 		ExposedHeaders: "",
 		MaxAge:         50 * time.Second,
-		// Dont use Origins: "*" when using Credentials: true
+		// Don't use Origins: "*" when using Credentials: true
 		Credentials:     false,
 		ValidateHeaders: false,
 	}))

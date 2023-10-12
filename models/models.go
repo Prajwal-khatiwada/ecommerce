@@ -11,12 +11,12 @@ type User struct {
 	First_Name      *string            `json:"first_name" validate:"required,min=2,max=30"`
 	Last_Name       *string            `json:"last_name"  validate:"required,min=2,max=30"`
 	Password        *string            `json:"password"   validate:"required,min=6"`
-	Email           *string            `json:"email"      validate:"email,required"` //email regex API
+	Email           *string            `json:"email"      validate:"email,required"`
 	Phone           *string            `json:"phone"      validate:"required"`
 	Token           *string            `json:"token"`
-	Refresh_Token   *string            `josn:"refresh_token"`
+	Refresh_Token   *string            `json:"refresh_token"`
 	Created_At      time.Time          `json:"created_at"`
-	Updated_At      time.Time          `json:"updtaed_at"`
+	Updated_At      time.Time          `json:"updated_at"`
 	User_ID         string             `json:"user_id"`
 	UserCart        []ProductUser      `json:"usercart" bson:"usercart"`
 	Address_Details []Address          `json:"address" bson:"address"`
@@ -27,7 +27,7 @@ type Product struct {
 	Product_ID   primitive.ObjectID `bson:"_id"`
 	Product_Name *string            `json:"product_name"`
 	Price        *uint64            `json:"price"`
-	Rating       *uint8             `json:"rating" validate:"required,min=0,max=5"`
+	Rating       *uint8             `json:"rating"`
 	Image        *string            `json:"image"`
 	Category     []string           `json:"category"`
 }
@@ -51,7 +51,7 @@ type Address struct {
 type Order struct {
 	Order_ID       primitive.ObjectID `bson:"_id"`
 	Order_Cart     []ProductUser      `json:"order_list"  bson:"order_list"`
-	Orderered_At   time.Time          `json:"ordered_on"  bson:"ordered_on"`
+	Ordered_At     time.Time          `json:"ordered_on"  bson:"ordered_on"`
 	Price          int                `json:"total_price" bson:"total_price"`
 	Discount       *int               `json:"discount"    bson:"discount"`
 	Payment_Method Payment            `json:"payment_method" bson:"payment_method"`

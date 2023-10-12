@@ -43,7 +43,7 @@
       <h4>हाट बजार</h4>
       <h1>नेपालमा बनेको नेपालीकै लगी।</h1>
       <p>A True Nepali E-Commerce</p>
-      <button onclick="window.location.href='shop.html'">Shop Now</button>
+      <button onclick="window.location.href='signup.html'">Shop Now</button>
     </section>
 
     <section id="gyapu" class="section-p1">
@@ -500,6 +500,17 @@
       <p>@2023- Designed By Haat Bazar</p>
     </div>
 
+    <div id="popup-cart" class="hidden">
+      <div id="close-cart" class="close-button">X</div>
+      <h2>Your Cart</h2>
+      <div id="cart-container">
+        <!-- Cart items will be displayed here dynamically -->
+      </div>
+      <p id="total-price">Total: $0.00</p>
+      <button onclick="checkout()">Checkout</button>
+      <button onclick="guestCheckout()">Guest Checkout</button>
+    </div>
+
     <script>
 // Function to generate star icons based on the product's rating
 function generateStarRatings(rating) {
@@ -551,7 +562,7 @@ fetch("http://localhost:8000/users/productview")
  let cart = [];
 
 // Function to add a product to the cart
-// Function to add a product to the cart
+
 function addToCart(name, price, image) {
   const product = {
     name: name,
@@ -607,6 +618,8 @@ closeCartButton.addEventListener("click", function () {
 document.addEventListener("DOMContentLoaded", function () {
   displayCart();
 });
+
+
 
   </script>
     <script src="cart.js"></script>

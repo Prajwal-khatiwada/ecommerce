@@ -3,10 +3,12 @@ package controllers
 import (
 	"context"
 	"errors"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
 	"os"
+	"regexp"
 	"strconv"
 	"time"
 
@@ -15,16 +17,18 @@ import (
 	generate "go-api/tokens"
 
 	"github.com/gin-gonic/gin"
-	"github.com/go-playground/validator/v10"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"golang.org/x/crypto/bcrypt"
 )
 
-var UserCollection *mongo.Collection = database.UserData(database.Client, "Users")
-var ProductCollection *mongo.Collection = database.ProductData(database.Client, "Products")
-var Validate = validator.New()
+var (
+	emailRegex                          = regexp.MustCompile(`^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`)
+	passwordRegex                       = regexp.MustCompile(`^[a-zA-Z0-9]*[A-Z]+[a-zA-Z0-9]*\d+[a-zA-Z0-9]*$`)
+	UserCollection    *mongo.Collection = database.UserData(database.Client, "Users")
+	ProductCollection *mongo.Collection = database.ProductData(database.Client, "Products")
+)
 
 func HashPassword(password string) string {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
@@ -59,9 +63,26 @@ func SignUp() gin.HandlerFunc {
 			return
 		}
 
+		if *user.Email == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Email cannot be empty"})
+			return
+		}
+
+		// Validate email format
+		if !emailRegex.MatchString(*user.Email) {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid email format"})
+			return
+		}
+
+		// Validate password format (at least 8 characters, 1 capital letter, and 1 number)
+		if !passwordRegex.MatchString(*user.Password) {
+			c.JSON(http.StatusBadRequest,
+				gin.H{"error": "Password must be at least 8 characters long and contain at least 1 capital letter and 1 number"})
+			return
+		}
+
 		count, err := UserCollection.CountDocuments(ctx, bson.M{"email": user.Email})
 		if err != nil {
-			log.Panic(err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
@@ -76,7 +97,6 @@ func SignUp() gin.HandlerFunc {
 		defer cancel()
 
 		if err != nil {
-			log.Panic(err)
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err})
 			return
 		}
@@ -86,8 +106,8 @@ func SignUp() gin.HandlerFunc {
 			return
 		}
 
-		password := HashPassword(*user.Password)
-		user.Password = &password
+		passwordHash := HashPassword(*user.Password)
+		user.Password = &passwordHash
 
 		user.Created_At, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
 		user.Updated_At, _ = time.Parse(time.RFC3339, time.Now().Format(time.RFC3339))
@@ -102,7 +122,7 @@ func SignUp() gin.HandlerFunc {
 
 		_, inserterr := UserCollection.InsertOne(ctx, user)
 		if inserterr != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "User not created"})
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "not created"})
 			return
 		}
 
@@ -129,7 +149,7 @@ func Login() gin.HandlerFunc {
 		defer cancel()
 
 		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "login incorrect"})
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Login Incorrect"})
 			return
 		}
 
@@ -138,6 +158,7 @@ func Login() gin.HandlerFunc {
 
 		if !PasswordIsValid {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": msg})
+			fmt.Println(msg)
 			return
 		}
 
@@ -174,7 +195,7 @@ func AddProductAdmin() gin.HandlerFunc {
 		}
 
 		ratingStr := c.PostForm("rating")
-		rating, err := strconv.ParseUint(ratingStr, 10, 8)
+		rating, err := strconv.ParseUint(ratingStr, 5, 8)
 		if err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid rating value"})
 			return
@@ -225,7 +246,7 @@ func DeleteProductAdmin() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		productQueryID := c.Query("id")
 		if productQueryID == "" {
-			log.Println("product id is inavalid")
+			log.Println("product id is invalid")
 			_ = c.AbortWithError(http.StatusBadRequest, errors.New("product id is empty"))
 			return
 		}
@@ -251,6 +272,52 @@ func DeleteProductAdmin() gin.HandlerFunc {
 	}
 }
 
+func EditProductAdmin() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		productQueryId := c.Query("id")
+
+		if productQueryId == "" {
+			c.Header("Content-Type", "application/json")
+			c.JSON(http.StatusNotFound, gin.H{"Error": "Invalid"})
+			c.Abort()
+			return
+		}
+
+		productId, err := primitive.ObjectIDFromHex(productQueryId)
+		if err != nil {
+			c.IndentedJSON(http.StatusBadRequest, gin.H{"Error": "Invalid Product ID"})
+			return
+		}
+
+		var ctx, cancel = context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+
+		var updatedProduct models.Product
+
+		if err := c.ShouldBindJSON(&updatedProduct); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"Error": err.Error()})
+			return
+		}
+
+		update := bson.M{
+			"$set": bson.M{
+				"product_name": updatedProduct.Product_Name,
+				"price":        updatedProduct.Price,
+				"rating":       updatedProduct.Rating,
+				"category":     updatedProduct.Category,
+			},
+		}
+
+		_, err = ProductCollection.UpdateOne(ctx, bson.M{"_id": productId}, update)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"Error": "Failed to Update Product"})
+			return
+		}
+
+		c.JSON(http.StatusOK, gin.H{"Message": "Product updates successfully"})
+	}
+}
+
 func SearchProduct() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var productlist []models.Product
@@ -259,7 +326,7 @@ func SearchProduct() gin.HandlerFunc {
 
 		cursor, err := ProductCollection.Find(ctx, bson.D{{}})
 		if err != nil {
-			c.IndentedJSON(http.StatusInternalServerError, "Someting Went Wrong Please Try After Some Time")
+			c.IndentedJSON(http.StatusInternalServerError, "Something Went Wrong Please Try After Some Time")
 			return
 		}
 
