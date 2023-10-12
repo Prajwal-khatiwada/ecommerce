@@ -16,8 +16,8 @@
       rel="stylesheet"
     />
   </head>
-  <div class="container">
-    <div class="form">
+  <div class="container forms">
+    <div class="form signup">
       <h1>Add Admin Product</h1>
       <form action="http://localhost:8000/admin/addproduct" method="post" enctype="multipart/form-data">
         <div class="field">
@@ -25,24 +25,24 @@
           <input type="text" id="product_name" name="product_name" required />
         </div>
         
-        <div class="field">
+        <div class="field input-field">
           <label for="price">Price:</label>
           <input type="number" id="price" name="price" step="0.01" required />
         </div>
         
-        <div class="field">
+        <div class="field input-field">
           <label for="rating">Rating:</label>
           <input type="number" id="rating" name="rating" min="0" max="10" step="1" required />
         </div>
         
-        <div class="field">
+        <div class="field input-field">
           <label for="image">Image:</label>
           <input type="file" id="image" name="image" accept="image/*" required />
         </div>
         
-        <div class="field">
+        <div class="field input-field">
           <label for="category">Category:</label>
-          <select id="category" name="category[]" multiple required>
+          <select id="category" name="category" required>
             <option value="electronics">Electronics</option>
             <option value="clothing">Clothing</option>
             <option value="books">Books</option>

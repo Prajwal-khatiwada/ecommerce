@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Haat Bazar</title>
     <link rel="stylesheet" href="style.css" />
     <link
@@ -13,6 +13,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    
   </head>
   <body>
     <section id="header">
@@ -33,12 +34,8 @@
         <ul id="navbar">
           <li><a class="active" href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About</a></li>
-          <li>
-            <a href="cart.html"
-              ><i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            </a>
-          </li>
+          <li><a href="about.html">About</a></li>   
+          <li><a href="#" id="open-cart">Cart</a></li> 
         </ul>
       </div>
     </section>
@@ -62,179 +59,189 @@
       <h2>Featured Products</h2>
       <p>Collection New Modern Products</p>
       <div class="container">
-        <div class="pro" onclick="window.location.href='details.html'">
-          <img
-            src="path_to_image.jpg"
-            alt="Product Image"
-            class="product-image"
-          />
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
           <div class="des">
             <span class="product-category"></span>
             <h5 class="product-name"></h5>
             <h4 class="product-price"></h4>
           </div>
+          <div class="star">
+            <!-- Star icons will be added here dynamically -->
+          </div>
           <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        
+
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+      <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
 
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
+        <div class="pro">
+          <img src="" alt="Product Image" class="product-image" />
+          <div class="des">
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
+          </div>
+          <div class="star"></div>
+          <div class="cart1">
+            <a href="javascript:void(0);" class="add-to-cart-button">
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
-
-      <div class="pro" onclick="window.location.href='details.html'">
-        <img src="" alt="Product Image" class="product-image" />
-        <div class="des">
-          <span class="product-category"></span>
-          <h5 class="product-name"></h5>
-          <h4 class="product-price"></h4>
-        </div>
-        <div class="cart1">
-          <a href=""
-            ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-          ></a>
-        </div>
-      </div>
-    </section>
-
+</div>
     <section id="banner">
       <h4>Repair Services</h4>
       <h2>Up to <span> 70% Off</span> - ALL T-shirts</h2>
@@ -429,7 +436,6 @@
         <h3>New Trendy Prints</h3>
       </div>
     </section>
-
     <section id="newsletter">
       <div class="newstext">
         <h4>Sign up For Newsletters</h4>
@@ -446,11 +452,11 @@
 
     <footer class="section-p1">
       <div class="col col1">
-        <div class="logo logo1">MW</div>
+        <div class="logo logo1">Haat Bazar</div>
         <h4>Contact</h4>
-        <p><strong>Address:</strong> Lokanthali, Bhaktapur</p>
-        <p><strong>Phone:</strong> +977-98100000000</p>
-        <p><strong>Hours:</strong> 9am - 5pm, Sun-Fri</p>
+        <p><strong>Address:</strong> Bhaktapur, Nepal</p>
+        <p><strong>Phone:</strong> +977-9800000000</p>
+        <p><strong>Hours:</strong> 5pm - 5pm, Sun-Fri</p>
         <div class="follow">
           <h4>Follow us</h4>
           <div class="icon">
@@ -491,70 +497,118 @@
       </div>
     </footer>
     <div class="copyright">
-      <p>@2022- MW Market World</p>
+      <p>@2023- Designed By Haat Bazar</p>
     </div>
+
     <script>
-      fetch("http://localhost:8000/users/productview")
-        .then((response) => response.json())
-        .then((products) => {
-          const productElements = document.querySelectorAll(".pro");
+// Function to generate star icons based on the product's rating
+function generateStarRatings(rating) {
+  const starRatings = document.createElement("div");
+  starRatings.className = "star";
 
-          // Loop through each product and populate the placeholders
-          products.forEach((product, index) => {
-            const productElement = productElements[index];
-            const productImage = productElement.querySelector(".product-image");
-            const productCategory =
-              productElement.querySelector(".product-category");
-            const productName = productElement.querySelector(".product-name");
-            const productPrice = productElement.querySelector(".product-price");
+  for (let i = 1; i <= 5; i++) {
+    const star = document.createElement("i");
+    star.className = `fas fa-star${i <= rating ? ' active' : ''}`;
+    starRatings.appendChild(star);
+  }
 
-            productImage.src = product.image; // Replace with actual image URL
-            productCategory.textContent = product.category;
-            productName.textContent = product.product_name;
-            productPrice.textContent = `$${product.price}`;
-          });
-        })
-        .catch((error) => {
-          console.error("Error fetching product data:", error);
-        });
+  return starRatings;
+}
 
-      document
-        .getElementById("searchButton")
-        .addEventListener("click", function () {
-          const searchInput = document.getElementById("searchInput").value;
-          searchProducts(searchInput);
-        });
+// Fetch product data and populate the placeholders
+fetch("http://localhost:8000/users/productview")
+  .then((response) => response.json())
+  .then((products) => {
+    const productElements = document.querySelectorAll(".pro");
 
-      function searchProducts(query) {
-        // Make an AJAX request to your backend API
-        fetch(`http://localhost:8000/users/productview/search?name=${query}`)
-          .then((response) => response.json())
-          .then((data) => {
-            // Process the data received from the API and update the UI
-            displaySearchResults(data);
-          })
-          .catch((error) => {
-            console.error("Error fetching search results:", error);
-          });
+    products.forEach((product, index) => {
+      const productElement = productElements[index];
+      const productImage = productElement.querySelector(".product-image");
+      const productCategory = productElement.querySelector(".product-category");
+      const productName = productElement.querySelector(".product-name");
+      const productPrice = productElement.querySelector(".product-price");
+      const starRatings = productElement.querySelector(".star");
+
+      productImage.src = product.image;
+      productCategory.textContent = product.category;
+      productName.textContent = product.product_name;
+      productPrice.textContent = `$${product.price}`;
+
+      // Generate and append star ratings
+      if (starRatings) {
+        const rating = product.rating; // Replace with the actual rating property
+        starRatings.appendChild(generateStarRatings(rating));
       }
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching product data:", error);
+  });
 
-      function displaySearchResults(results) {
-        const productContainer = document.querySelector(".container"); // Assuming this is the container for products
 
-        // Clear the existing products from the container
-        productContainer.innerHTML = "";
 
-        // Loop through the search results and create HTML elements for each product
-        results.forEach((product) => {
-          const productDiv = document.createElement("div");
-          productDiv.className = "pro";
+ // Define the cart array to store added products
+ let cart = [];
 
-          // Create other elements for product details (image, name, price, etc.)
-          // You can use the product details from the 'results' array
+// Function to add a product to the cart
+// Function to add a product to the cart
+function addToCart(name, price, image) {
+  const product = {
+    name: name,
+    price: price,
+    image: encodeURIComponent(image), // Encode the URL if necessary
+  };
+  cart.push(product);
 
-          productContainer.appendChild(productDiv);
-        });
-      }
-    </script>
-  </body>
+  // Store the cart data in localStorage (optional but recommended)
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Optionally, you can update the cart display in the popup here
+  displayCart(); // Call a function to update the cart display
+  openCart();
+}
+function openCart() {
+  popupCart.classList.add("show");
+}
+
+
+
+// Select all the "add to cart" buttons
+const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+
+addToCartButtons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    const productElement = event.target.closest('.pro');
+    const productName = productElement.querySelector('.product-name').textContent;
+    const productPrice = productElement.querySelector('.product-price').textContent;
+    const productImage = productElement.querySelector('.product-image').src;
+
+    // Call the addToCart function with the product information
+    addToCart(productName, productPrice, productImage);
+  });
+});
+
+
+// JavaScript for the main page (index page)
+
+const openCartLink = document.getElementById("open-cart");
+const closeCartButton = document.getElementById("close-cart");
+const popupCart = document.getElementById("popup-cart");
+
+openCartLink.addEventListener("click", function () {
+  popupCart.classList.toggle("show");
+});
+
+closeCartButton.addEventListener("click", function () {
+  popupCart.classList.remove("show");
+});
+
+// Call the displayCart function after the DOM content is loaded
+document.addEventListener("DOMContentLoaded", function () {
+  displayCart();
+});
+
+  </script>
+    <script src="cart.js"></script>
+</body>
 </html>

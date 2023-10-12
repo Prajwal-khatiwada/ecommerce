@@ -683,3 +683,61 @@ footer a:hover {
   border-bottom-right-radius: 10px;
   cursor: pointer;
 }
+
+#popup-cart {
+  position: fixed;
+  display: none;
+  top: 15%; /* Adjust the top position as needed */
+  right: 10px; /* Adjust the right position as needed */
+  width: 300px; /* Adjust the width as needed */
+  height: auto; /* Allow the height to adjust to content */
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  overflow-y: auto;
+  padding: 20px;
+  max-height: 80%; /* Limit the maximum height */
+  border-radius: 10px; /* Add rounded corners for a nicer look */
+}
+
+#popup-cart.show {
+  display: block;
+}
+
+#close-cart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Add some basic CSS for the cart items */
+.cart-item {
+  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.cart-item .cart-item-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item h5 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.cart-item p {
+  margin: 5px 0;
+  font-size: 16px;
+}
