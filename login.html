@@ -1,121 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/login.css" />
-
-    <!-- Boxicons CSS -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css
-"
-      rel="stylesheet"
-    />
+    <title>Login Page</title>
   </head>
   <body>
-    <section class="container forms">
-      <div class="form login">
-        <div class="form-content">
-          <div id="errorDiv" class="error-message"></div>
-          <header>Login</header>
-          <form action="#" id="loginForm">
-            <div class="field input-field">
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                class="input"
-                required
-              />
-            </div>
+    <h1>Login Page</h1>
+    <form id="loginForm">
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" required /><br />
 
-            <div class="field input-field">
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                class="password"
-                required
-              />
-              <i class="bx bx-hide eye-icon"></i>
-            </div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required /><br />
 
-            <div class="form-link">
-              <a href="#" class="forgot-pass">Forgot password?</a>
-            </div>
-
-            <div class="field button-field">
-              <button type="submit">Login</button>
-            </div>
-          </form>
-
-          <div class="form-link">
-            <span
-              >Don't have an account?
-              <a href="signup.html" class="link signup-link">Signup</a></span
-            >
-          </div>
-        </div>
-    </section>
-
-    <!-- JavaScript -->
+      <button type="submit">Login</button>
+    </form>
 
     <script>
-      const pwShowHide = document.querySelectorAll(".eye-icon");
+      var loginForm = document.getElementById("loginForm");
 
-      pwShowHide.forEach((eyeIcon) => {
-        eyeIcon.addEventListener("click", () => {
-          let pwField = eyeIcon.previousElementSibling;
+      loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-          if (pwField.type === "password") {
-            pwField.type = "text";
-            eyeIcon.classList.replace("bx-hide", "bx-show");
-          } else {
-            pwField.type = "password";
-            eyeIcon.classList.replace("bx-show", "bx-hide");
-          }
-        });
-      });
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
 
-      document
-        .getElementById("loginForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
+        fetch("http://localhost:8000/users/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.token && data.user) {
+              localStorage.setItem("token", data.token);
+              localStorage.setItem("username", data.username);
+              localStorage.setItem("userID", data.userID);
 
-          const formData = new FormData(event.target);
-          const user = {
-            email: formData.get("email"),
-            password: formData.get("password"),
-          };
-
-          console.log("Sending JSON:", JSON.stringify(user));
-
-          try {
-            const response = await fetch("http://localhost:8000/users/login", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json; charset=utf-8",
-              },
-              body: JSON.stringify(user),
-            });
-
-            if (response.status !== 302) {
-              const errorData = await response.json();
-              throw new Error(errorData.error || "Login failed");
+              window.location.href = "index.html";
+            } else {
+              alert("Login failed. Please check your credentials.");
             }
-
-            const loggedInUser = await response.json();
-            window.location.href = "index.html";
-          } catch (error) {
-            const errorDiv = document.getElementById("errorDiv");
-            errorDiv.textContent = error.message;
-          }
-        });
-
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred during login. Please try again.");
+          });
+      });
     </script>
   </body>
 </html>

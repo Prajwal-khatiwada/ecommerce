@@ -16,6 +16,43 @@
     
   </head>
   <body>
+    <div id="userCart">
+      <a href="cartable.html">Here Cart</a>
+      <script src="userCart.js"></script>
+    </div>
+
+    <div id="userStatus">
+      <!-- This div will be updated with the username or login option -->
+  </div>
+  
+  <script>
+      // Check if the user is logged in
+      var token = localStorage.getItem("token");
+      var username = localStorage.getItem("username");
+  
+      // Get the userStatus div where we will display the username or login option
+      var userStatusDiv = document.getElementById("userStatus");
+  
+      if (token && username) {
+          // User is logged in, display their username
+          userStatusDiv.innerHTML = "Welcome, " + username + "! (<a href='#' id='logoutLink'>Logout</a>)";
+  
+          // Add a logout event listener
+          var logoutLink = document.getElementById("logoutLink");
+          logoutLink.addEventListener("click", function() {
+              // Clear the stored user information
+              localStorage.removeItem("token");
+              localStorage.removeItem("username");
+              localStorage.removeItem("userID");
+  
+              // Redirect to the login page or perform other actions as needed
+              window.location.href = "login.html";
+          });
+      } else {
+          // User is not logged in, display a login link
+          userStatusDiv.innerHTML = "Please <a href='login.html'>login</a> to access your account.";
+      }
+  </script>
     <section id="header">
       <div class="logo">
         <a href=""><img src="img\logo_site.png" alt="Logo" /></a>
