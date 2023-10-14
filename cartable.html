@@ -72,6 +72,12 @@
           </tr>
         </thead>
         <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">Total:</td>
+            <td id="totalPrice"></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
 
@@ -110,6 +116,10 @@
                 const cartItems = data.cartItems;
                 const tableHTML = generateTableHTML(cartItems);
                 tbody.innerHTML = tableHTML;
+
+                // Display the total price.
+                const totalPriceElement = document.getElementById("totalPrice");
+                totalPriceElement.textContent = `Rs. ${total.toFixed(2)}`;
               } else {
                 console.error("Invalid data received from the server.");
               }
