@@ -3,3 +3,4 @@ assets
 go.mod
 go.sumsendgrid.env
 go.sum
+test.html

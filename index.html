@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Haat Bazar</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="search.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -13,6 +14,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <div id="userCart">
@@ -58,14 +60,21 @@
       <div class="logo">
         <a href=""><img src="img\logo_site.png" alt="Logo" /></a>
       </div>
-
+      
       <div class="search">
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="I'm searching for....."
-        />
-        <button id="searchButton">Search</button>
+        <div class="search-dropdown">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="I'm searching for....."
+          />
+          <select id="categoryDropdown">
+            <option value="Jewelry">Jewelry</option>
+            <option value="Thanka">Thanka</option>
+            <!-- Add more category options as needed -->
+          </select>
+          <div class="search-dropdown-content" id="searchDropdown"></div>
+        </div>
       </div>
 
       <div>
@@ -332,180 +341,6 @@
         <h2>Up to <span> 70% Off</span> - ALL T-shirts</h2>
         <button class="normal">Explore More</button>
       </section>
-    
-      <section id="product1" class="section-1">
-        <h2>New Arrivals</h2>
-        <p>Summer Collection New Modern</p>
-        <div class="container">
-          <div class="pro">
-            <img src="img/products/n1.jpg" alt="" />
-            <div class="des">
-              <span>adidas</span>
-              <h5>Cartoon Astronaut T-shirts</h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>$74</h4>
-            </div>
-            <div class="cart1">
-              <a href=""
-                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-  
-          <div class="pro">
-            <img src="img/products/n2.jpg" alt="" />
-            <div class="des">
-              <span>adidas</span>
-              <h5>Cartoon Astronaut T-shirts</h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>$74</h4>
-            </div>
-            <div class="cart1">
-              <a href=""
-                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-  
-          <div class="pro">
-            <img src="img/products/n3.jpg" alt="" />
-            <div class="des">
-              <span>adidas</span>
-              <h5>Cartoon Astronaut T-shirts</h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>$74</h4>
-            </div>
-            <div class="cart1">
-              <a href=""
-                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-  
-          <div class="pro">
-            <img src="img/products/n4.jpg" alt="" />
-            <div class="des">
-              <span>adidas</span>
-              <h5>Cartoon Astronaut T-shirts</h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>$74</h4>
-            </div>
-            <div class="cart1">
-              <a href=""
-                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-  
-          <div class="pro">
-            <img src="img/products/n5.jpg" alt="" />
-            <div class="des">
-              <span>adidas</span>
-              <h5>Cartoon Astronaut T-shirts</h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>$74</h4>
-            </div>
-            <div class="cart1">
-              <a href=""
-                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-  
-          <div class="pro">
-            <img src="img/products/n6.jpg" alt="" />
-            <div class="des">
-              <span>adidas</span>
-              <h5>Cartoon Astronaut Shots</h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>$74</h4>
-            </div>
-            <div class="cart1">
-              <a href=""
-                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-  
-          <div class="pro">
-            <img src="img/products/n7.jpg" alt="" />
-            <div class="des">
-              <span>adidas</span>
-              <h5>Cartoon Astronaut T-shirts</h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>$74</h4>
-            </div>
-            <div class="cart1">
-              <a href=""
-                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-  
-          <div class="pro">
-            <img src="img/products/n8.jpg" alt="" />
-            <div class="des">
-              <span>adidas</span>
-              <h5>Cartoon Astronaut T-shirts</h5>
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h4>$74</h4>
-            </div>
-            <div class="cart1">
-              <a href=""
-                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section id="banner3">
       <div class="banner-box b3">
@@ -692,8 +527,151 @@
           }
         });
       });
-    </script>
 
-    <script src="cart.js"></script>
+      // Function with search and addtocart
+        function addToCart(productId, productName) {
+          console.log(
+            "Adding product to cart (ID:",
+            productId,
+            "Name:",
+            productName,
+            ")"
+          );
+          const userId = localStorage.getItem("userID");
+          const token = localStorage.getItem("token");
+  
+          console.log(userId);
+          console.log(token);
+  
+          if (!userId || !token) {
+            console.log("User not logged in or token missing");
+            return;
+          }
+  
+          fetch(
+            `http://localhost:8000/addtocart?id=${productId}&userID=${userId}`,
+            {
+              method: "GET",
+              headers: {
+                Token: `${token}`,
+              },
+              // mode: "no-cors"
+            }
+          )
+            .then((response) => {
+              if (response.status === 200) {
+                console.log("Product added to cart successfully");
+                console.log("Response from server:", data);
+              } else {
+                console.error("Failed to add product to cart");
+              }
+            })
+            .catch((error) => {
+              console.error("Error adding product to cart:", error);
+            });
+        }
+  
+        $(document).ready(function () {
+          var searchDropdown = $("#searchDropdown");
+  
+          $("#searchInput").keyup(function () {
+            var query = $("#searchInput").val();
+  
+            $.ajax({
+              type: "GET",
+              url: "http://localhost:8000/users/search?name=" + query,
+              success: function (data) {
+                searchDropdown.empty();
+  
+                if (data.length > 0) {
+                data.forEach(function (result) {
+                  var resultItem = $("<a>").text(result.product_name);
+                  var priceLabel = $("<span>")
+                    .addClass("search-result-price")
+                    .text(" Rs. " + result.price);
+                  resultItem.append(priceLabel);
+
+                  var imageLabel = $("<img>")
+                    .addClass("search-result-image")
+                    .attr("src", result.image)
+                  resultItem.append(imageLabel)
+
+                  resultItem.click(function () {
+                    addToCart(result.Product_ID, result.product_name);
+                    searchDropdown.css("display", "none");
+                  });
+                  searchDropdown.append(resultItem);
+                });
+
+                searchDropdown.css("display", "block");
+              } else {
+                searchDropdown.css("display", "none");
+              }
+              },
+              error: function (error) {
+                console.log("Error: " + error);
+              },
+            });
+          });
+  
+          $(document).click(function (e) {
+            if (!$(e.target).closest(".search-dropdown").length) {
+              searchDropdown.css("display", "none");
+            }
+          });
+        });
+
+        $(document).ready(function () {
+          var searchDropdown = $("#searchDropdown");
+  
+          $("#searchInput, #categoryDropdown").on("input", function () {
+            var query = $("#searchInput").val();
+            var category = $("#categoryDropdown").val();
+  
+            $.ajax({
+              type: "GET",
+              url: `http://localhost:8000/users/search-category?name=${category}`,
+              success: function (data) {
+                searchDropdown.empty();
+  
+                if (data.length > 0) {
+                data.forEach(function (result) {
+                  var resultItem = $("<a>").text(result.product_name);
+                  var priceLabel = $("<span>")
+                    .addClass("search-result-price")
+                    .text(" Rs. " + result.price);
+                  resultItem.append(priceLabel);
+
+                  var imageLabel = $("<img>")
+                    .addClass("search-result-image")
+                    .attr("src", result.image)
+                  resultItem.append(imageLabel)
+
+                  resultItem.click(function () {
+                    addToCart(result.Product_ID, result.product_name);
+                    searchDropdown.css("display", "none");
+                  });
+                  searchDropdown.append(resultItem);
+                });
+
+                searchDropdown.css("display", "block");
+              } else {
+                searchDropdown.css("display", "none");
+              }
+              },
+              error: function (error) {
+                console.log("Error: " + error);
+              },
+            });
+          });
+  
+          $(document).click(function (e) {
+            if (!$(e.target).closest(".search-dropdown").length) {
+              searchDropdown.css("display", "none");
+            }
+          });
+        });
+      </script>
+    </script>
   </body>
 </html>
