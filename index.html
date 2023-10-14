@@ -13,7 +13,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    
   </head>
   <body>
     <div id="userCart">
@@ -23,36 +22,38 @@
 
     <div id="userStatus">
       <!-- This div will be updated with the username or login option -->
-  </div>
-  
-  <script>
+    </div>
+
+    <script>
       // Check if the user is logged in
       var token = localStorage.getItem("token");
       var username = localStorage.getItem("username");
-  
+
       // Get the userStatus div where we will display the username or login option
       var userStatusDiv = document.getElementById("userStatus");
-  
+
       if (token && username) {
-          // User is logged in, display their username
-          userStatusDiv.innerHTML = "Welcome, " + username + "! (<a href='#' id='logoutLink'>Logout</a>)";
-  
-          // Add a logout event listener
-          var logoutLink = document.getElementById("logoutLink");
-          logoutLink.addEventListener("click", function() {
-              // Clear the stored user information
-              localStorage.removeItem("token");
-              localStorage.removeItem("username");
-              localStorage.removeItem("userID");
-  
-              // Redirect to the login page or perform other actions as needed
-              window.location.href = "login.html";
-          });
+        // User is logged in, display their username
+        userStatusDiv.innerHTML =
+          "Welcome, " + username + "! (<a href='#' id='logoutLink'>Logout</a>)";
+
+        // Add a logout event listener
+        var logoutLink = document.getElementById("logoutLink");
+        logoutLink.addEventListener("click", function () {
+          // Clear the stored user information
+          localStorage.removeItem("token");
+          localStorage.removeItem("username");
+          localStorage.removeItem("userID");
+
+          // Redirect to the login page or perform other actions as needed
+          window.location.href = "login.html";
+        });
       } else {
-          // User is not logged in, display a login link
-          userStatusDiv.innerHTML = "Please <a href='login.html'>login</a> to access your account.";
+        // User is not logged in, display a login link
+        userStatusDiv.innerHTML =
+          "Please <a href='login.html'>login</a> to access your account.";
       }
-  </script>
+    </script>
     <section id="header">
       <div class="logo">
         <a href=""><img src="img\logo_site.png" alt="Logo" /></a>
@@ -71,8 +72,8 @@
         <ul id="navbar">
           <li><a class="active" href="index.html">Home</a></li>
           <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About</a></li>   
-          <li><a href="#" id="open-cart">Cart</a></li> 
+          <li><a href="about.html">About</a></li>
+          <li><a href="#" id="open-cart">Cart</a></li>
         </ul>
       </div>
     </section>
@@ -107,23 +108,11 @@
             <!-- Star icons will be added here dynamically -->
           </div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
-              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-        
-
-        <div class="pro">
-          <img src="" alt="Product Image" class="product-image" />
-          <div class="des">
-            <span class="product-category"></span>
-            <h5 class="product-name"></h5>
-            <h4 class="product-price"></h4>
-          </div>
-          <div class="star"></div>
-          <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
@@ -138,7 +127,11 @@
           </div>
           <div class="star"></div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
@@ -153,7 +146,11 @@
           </div>
           <div class="star"></div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
@@ -168,7 +165,11 @@
           </div>
           <div class="star"></div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
@@ -183,7 +184,11 @@
           </div>
           <div class="star"></div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
@@ -198,7 +203,11 @@
           </div>
           <div class="star"></div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
@@ -213,7 +222,11 @@
           </div>
           <div class="star"></div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
@@ -228,22 +241,11 @@
           </div>
           <div class="star"></div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
-              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-
-      <div class="pro">
-          <img src="" alt="Product Image" class="product-image" />
-          <div class="des">
-            <span class="product-category"></span>
-            <h5 class="product-name"></h5>
-            <h4 class="product-price"></h4>
-          </div>
-          <div class="star"></div>
-          <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
@@ -258,7 +260,11 @@
           </div>
           <div class="star"></div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
@@ -273,193 +279,235 @@
           </div>
           <div class="star"></div>
           <div class="cart1">
-            <a href="javascript:void(0);" class="add-to-cart-button">
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
               <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
             </a>
           </div>
         </div>
-</div>
-    <section id="banner">
-      <h4>Repair Services</h4>
-      <h2>Up to <span> 70% Off</span> - ALL T-shirts</h2>
-      <button class="normal">Explore More</button>
-    </section>
 
-    <section id="product1" class="section-1">
-      <h2>New Arrivals</h2>
-      <p>Summer Collection New Modern</p>
-      <div class="container">
         <div class="pro">
-          <img src="img/products/n1.jpg" alt="" />
+          <img src="" alt="Product Image" class="product-image" />
           <div class="des">
-            <span>adidas</span>
-            <h5>Cartoon Astronaut T-shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
           </div>
+          <div class="star"></div>
           <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
         <div class="pro">
-          <img src="img/products/n2.jpg" alt="" />
+          <img src="" alt="Product Image" class="product-image" />
           <div class="des">
-            <span>adidas</span>
-            <h5>Cartoon Astronaut T-shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
+            <span class="product-category"></span>
+            <h5 class="product-name"></h5>
+            <h4 class="product-price"></h4>
           </div>
+          <div class="star"></div>
           <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
-        </div>
-
-        <div class="pro">
-          <img src="img/products/n3.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Cartoon Astronaut T-shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
-        </div>
-
-        <div class="pro">
-          <img src="img/products/n4.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Cartoon Astronaut T-shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
-        </div>
-
-        <div class="pro">
-          <img src="img/products/n5.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Cartoon Astronaut T-shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
-        </div>
-
-        <div class="pro">
-          <img src="img/products/n6.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Cartoon Astronaut Shots</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
-        </div>
-
-        <div class="pro">
-          <img src="img/products/n7.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Cartoon Astronaut T-shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
-          </div>
-        </div>
-
-        <div class="pro">
-          <img src="img/products/n8.jpg" alt="" />
-          <div class="des">
-            <span>adidas</span>
-            <h5>Cartoon Astronaut T-shirts</h5>
-            <div class="star">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <h4>$74</h4>
-          </div>
-          <div class="cart1">
-            <a href=""
-              ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
-            ></a>
+            <a
+              href="javascript:void(0);"
+              class="add-to-cart-button"
+              data-product-id=""
+            >
+              <i class="fa fa-shopping-cart cart" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
-    </section>
+      <section id="banner">
+        <h4>Repair Services</h4>
+        <h2>Up to <span> 70% Off</span> - ALL T-shirts</h2>
+        <button class="normal">Explore More</button>
+      </section>
+    
+      <section id="product1" class="section-1">
+        <h2>New Arrivals</h2>
+        <p>Summer Collection New Modern</p>
+        <div class="container">
+          <div class="pro">
+            <img src="img/products/n1.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>Cartoon Astronaut T-shirts</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$74</h4>
+            </div>
+            <div class="cart1">
+              <a href=""
+                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+  
+          <div class="pro">
+            <img src="img/products/n2.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>Cartoon Astronaut T-shirts</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$74</h4>
+            </div>
+            <div class="cart1">
+              <a href=""
+                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+  
+          <div class="pro">
+            <img src="img/products/n3.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>Cartoon Astronaut T-shirts</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$74</h4>
+            </div>
+            <div class="cart1">
+              <a href=""
+                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+  
+          <div class="pro">
+            <img src="img/products/n4.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>Cartoon Astronaut T-shirts</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$74</h4>
+            </div>
+            <div class="cart1">
+              <a href=""
+                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+  
+          <div class="pro">
+            <img src="img/products/n5.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>Cartoon Astronaut T-shirts</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$74</h4>
+            </div>
+            <div class="cart1">
+              <a href=""
+                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+  
+          <div class="pro">
+            <img src="img/products/n6.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>Cartoon Astronaut Shots</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$74</h4>
+            </div>
+            <div class="cart1">
+              <a href=""
+                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+  
+          <div class="pro">
+            <img src="img/products/n7.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>Cartoon Astronaut T-shirts</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$74</h4>
+            </div>
+            <div class="cart1">
+              <a href=""
+                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+  
+          <div class="pro">
+            <img src="img/products/n8.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>Cartoon Astronaut T-shirts</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$74</h4>
+            </div>
+            <div class="cart1">
+              <a href=""
+                ><i class="fa fa-shopping-cart cart" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <section id="banner3">
+      <section id="banner3">
       <div class="banner-box b3">
         <h2>SEASONAL SALE</h2>
         <h3>Winter Collection - 50% Off</h3>
@@ -549,116 +597,103 @@
     </div>
 
     <script>
-// Function to generate star icons based on the product's rating
-function generateStarRatings(rating) {
-  const starRatings = document.createElement("div");
-  starRatings.className = "star";
+      // Function to generate star icons based on the product's rating
+      function generateStarRatings(rating) {
+        const starRatings = document.createElement("div");
+        starRatings.className = "star";
 
-  for (let i = 1; i <= 5; i++) {
-    const star = document.createElement("i");
-    star.className = `fas fa-star${i <= rating ? ' active' : ''}`;
-    starRatings.appendChild(star);
-  }
+        for (let i = 1; i <= 5; i++) {
+          const star = document.createElement("i");
+          star.className = `fas fa-star${i <= rating ? " active" : ""}`;
+          starRatings.appendChild(star);
+        }
 
-  return starRatings;
-}
-
-// Fetch product data and populate the placeholders
-fetch("http://localhost:8000/users/productview")
-  .then((response) => response.json())
-  .then((products) => {
-    const productElements = document.querySelectorAll(".pro");
-
-    products.forEach((product, index) => {
-      const productElement = productElements[index];
-      const productImage = productElement.querySelector(".product-image");
-      const productCategory = productElement.querySelector(".product-category");
-      const productName = productElement.querySelector(".product-name");
-      const productPrice = productElement.querySelector(".product-price");
-      const starRatings = productElement.querySelector(".star");
-
-      productImage.src = product.image;
-      productCategory.textContent = product.category;
-      productName.textContent = product.product_name;
-      productPrice.textContent = `$${product.price}`;
-
-      // Generate and append star ratings
-      if (starRatings) {
-        const rating = product.rating; // Replace with the actual rating property
-        starRatings.appendChild(generateStarRatings(rating));
+        return starRatings;
       }
-    });
-  })
-  .catch((error) => {
-    console.error("Error fetching product data:", error);
-  });
 
+      function addToCart(productId) {
+        const userId = localStorage.getItem("userID");
+        const token = localStorage.getItem("token");
 
+        if (!userId || !token) {
+          console.log("User not logged in or token missing");
+          return;
+        }
 
- // Define the cart array to store added products
- let cart = [];
+        // Make a request to add the product to the cart
+        fetch(
+          `http://localhost:8000/addtocart?id=${productId}&userID=${userId}`,
+          {
+            method: "GET",
+            headers: {
+              Token: `${token}`,
+            },
+            // mode: "no-cors"
+          }
+        )
+          .then((response) => {
+            if (response.status === 200) {
+              console.log("Product added to cart successfully");
+              // You can update the cart UI or perform other actions as needed
+              console.log("Response from server:", data);
+            } else {
+              console.error("Failed to add product to cart");
+            }
+          })
+          .catch((error) => {
+            console.error("Error adding product to cart:", error);
+          });
+      }
 
-// Function to add a product to the cart
+      // Fetch product data and populate the placeholders
+      fetch("http://localhost:8000/users/productview")
+        .then((response) => response.json())
+        .then((products) => {
+          const productElements = document.querySelectorAll(".pro");
 
-function addToCart(name, price, image) {
-  const product = {
-    name: name,
-    price: price,
-    image: encodeURIComponent(image), // Encode the URL if necessary
-  };
-  cart.push(product);
+          products.forEach((product, index) => {
+            const productElement = productElements[index];
+            const productImage = productElement.querySelector(".product-image");
+            const productCategory =
+              productElement.querySelector(".product-category");
+            const productName = productElement.querySelector(".product-name");
+            const productPrice = productElement.querySelector(".product-price");
+            const starRatings = productElement.querySelector(".star");
+            const addToCartButton = productElement.querySelector(
+              ".add-to-cart-button"
+            );
 
-  // Store the cart data in localStorage (optional but recommended)
-  localStorage.setItem('cart', JSON.stringify(cart));
+            productImage.src = product.image;
+            productCategory.textContent = product.category[0]; // Assuming there's only one category
+            productName.textContent = product.product_name;
+            productPrice.textContent = `$${product.price}`;
 
-  // Optionally, you can update the cart display in the popup here
-  displayCart(); // Call a function to update the cart display
-  openCart();
-}
-function openCart() {
-  popupCart.classList.add("show");
-}
+            // Extract and set the Product_ID in the data-product-id attribute
+            addToCartButton.setAttribute("data-product-id", product.Product_ID);
 
+            // Generate and append star ratings
+            if (starRatings) {
+              const rating = product.rating;
+              starRatings.appendChild(generateStarRatings(rating));
+            }
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching product data:", error);
+        });
 
+      // Add event listeners to "Add to Cart" buttons
+      const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+      addToCartButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const productId = button.getAttribute("data-product-id");
+          if (productId) {
+            addToCart(productId);
+          }
+        });
+      });
+    </script>
 
-// Select all the "add to cart" buttons
-const addToCartButtons = document.querySelectorAll('.add-to-cart-button');
-
-addToCartButtons.forEach((button) => {
-  button.addEventListener('click', (event) => {
-    const productElement = event.target.closest('.pro');
-    const productName = productElement.querySelector('.product-name').textContent;
-    const productPrice = productElement.querySelector('.product-price').textContent;
-    const productImage = productElement.querySelector('.product-image').src;
-
-    // Call the addToCart function with the product information
-    addToCart(productName, productPrice, productImage);
-  });
-});
-
-
-// JavaScript for the main page (index page)
-
-const openCartLink = document.getElementById("open-cart");
-const closeCartButton = document.getElementById("close-cart");
-const popupCart = document.getElementById("popup-cart");
-
-openCartLink.addEventListener("click", function () {
-  popupCart.classList.toggle("show");
-});
-
-closeCartButton.addEventListener("click", function () {
-  popupCart.classList.remove("show");
-});
-
-// Call the displayCart function after the DOM content is loaded
-document.addEventListener("DOMContentLoaded", function () {
-  displayCart();
-});
-
-
-
-  </script>
     <script src="cart.js"></script>
-</body>
+  </body>
 </html>

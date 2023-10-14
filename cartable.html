@@ -74,6 +74,9 @@
         <tbody></tbody>
       </table>
     </div>
+
+    <button onclick="buyItems()">Buy Items</button>
+
     <script>
       function displayShoppingCart() {
         const cartTable = document.getElementById("cartTable");
@@ -127,6 +130,7 @@
           tableHTML += `<td>${item.rating}</td>`;
           tableHTML += `<td><img src="${item.image}" alt="${item.product_name}" width="100"></td>`;
           tableHTML += `<td><button data-product-id="${item.Product_ID}" onclick="removeProduct(this)">Remove</button></td>`;
+          tableHTML += `<td><button data-product-id="${item.Product_ID}" onclick="instantBuy(this)">Instant Buy</button></td>`;
           tableHTML += "</tr>";
         });
 
@@ -162,6 +166,67 @@
           })
           .catch((error) => {
             console.error("Error removing product from the cart:", error);
+          });
+      }
+
+      function buyItems() {
+        const userID = localStorage.getItem("userID");
+        const token = localStorage.getItem("token");
+
+        if (!userID || !token) {
+          console.error("User ID and token not found in localStorage.");
+          return;
+        }
+
+        const buyURL = `http://localhost:8000/cartcheckout?id=${userID}`;
+
+        fetch(buyURL, {
+          method: "GET",
+          headers: {
+            Token: token,
+          },
+        })
+          .then((response) => {
+            if (response.status === 200) {
+              alert("Items successfully purchased.");
+              displayShoppingCart(); // Refresh the cart display.
+            } else {
+              console.error("Error buying items from the cart");
+            }
+          })
+          .catch((error) => {
+            console.error("Error buying items from the cart:", error);
+          });
+      }
+
+      function instantBuy(button) {
+        const userID = localStorage.getItem("userID");
+        const productID = button.getAttribute("data-product-id");
+        const token = localStorage.getItem("token");
+
+        if (!userID || !token) {
+          console.error("User ID or token not found.");
+          return;
+        }
+
+        const instantBuyURL = `http://localhost:8000/instantbuy?userid=${userID}&pid=${productID}`;
+
+        fetch(instantBuyURL, {
+          method: "GET",
+          headers: {
+            Token: token,
+          },
+        })
+          .then((response) => {
+            if (response.status === 200) {
+              alert("Product successfully purchased.");
+              displayShoppingCart(); // Refresh the cart display.
+            } else {
+              console.error("Error purchasing product.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error purchasing product:", error);
           });
       }
 

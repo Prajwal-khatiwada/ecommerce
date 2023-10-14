@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 100px;
+      }
+
+      .login-container {
+        width: 300px;
+        margin: 0 auto;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #0074d9;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <script>
+      // Hardcoded username and password for authorization
+      const hardcodedUsername = "admin";
+      const hardcodedPassword = "password123";
+
+      const loginForm = document.getElementById("login-form");
+
+      loginForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const usernameInput = document.getElementById("username");
+        const passwordInput = document.getElementById("password");
+
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+
+        if (username === hardcodedUsername && password === hardcodedPassword) {
+          localStorage.setItem("authenticated", "true");
+          window.location.href = "admin.html";
+        } else {
+          alert("Invalid username or password. Please try again.");
+          usernameInput.value = "";
+          passwordInput.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
